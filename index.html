@@ -114,12 +114,26 @@
 				
 				<!-- misc, bus event,... -->
 				
-				
+				<section>
 				<!-- Part II inconvénients JW -->
 				<!-- organisation du code, gros projets, require.js -->
 				<!-- complexité du build propre des JS, uglify, dependance node.js/npm (grunt) -->
 				<!-- obfuscation -->
 				<!-- rebond de scope -->
+				
+					<section>
+						<h2>Directives scope nightmare</h2>
+						<pre><code class="javascript">scope: {
+  title: '@',             // the title uses the data-binding from the parent scope
+  onOk: '&',              // create a delegate onOk function
+  onCancel: '&',          // create a delegate onCancel function
+  visible: '='            // set up visible to accept data-binding
+}						</code></pre>
+						<ul>
+							<li>héritage de méthode et non de propriétés</li>
+						</ul>
+					</section>
+				</section>
 				
 				
 				<!-- Part III avantages MP -->
@@ -136,7 +150,32 @@
 				
 				
 				<!-- Part l'après angular ? JW -->
-				<!-- polymer -->
+				<section>
+					<section>
+						<h1>Après angularJS ?</h1>
+						<h2>What's next ? </h2>
+					</section>
+					<section>
+						<!-- polymer -->
+						<h2>Combler les lacunes des directives</h2>
+						<p>Polymer is a new type of library for the web, built on top of Web Components, and designed to leverage the evolving web platform on modern browsers.</p>
+						<p><a href="http://www.polymer-project.org/getting-started.html">http://www.polymer-project.org/getting-started.html</a></p>
+						<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;!-- 1. Shim missing platform features --&gt;
+    &lt;script src="polymer-all/platform/platform.js"&gt;&lt;/script&gt;
+    &lt;!-- 2. Load a component --&gt;
+    &lt;link rel="import" href="x-foo.html"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- 3. Declare the component by its tag. --&gt;
+    &lt;x-foo&gt;&lt;/x-foo&gt;
+  &lt;/body&gt;
+&lt;/html&gt;				</code></pre>
+					</section>
+					
+				</section>
 				<!-- angular.dart -->
 				
 				
