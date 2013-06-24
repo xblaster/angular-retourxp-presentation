@@ -226,7 +226,7 @@
 				
 				<!-- Filter -->
 				<section>
-					<h2>Filtre</h2>
+					<h2>Filtres</h2>
 					<p>Fonction de conversion de valeur</p>
 					<ul style="margin-top : 1em;">
 						<li style="width : 115%">
@@ -347,9 +347,9 @@ app.controller('ProductCtrl', ['$scope', function($scope) {
 				<!-- rebond de scope -->
 				<!-- Performance a long terme => une modification mineure entraine un check de toutes les proprietes par angularjs -->
 					<section>
-						<h2>Inifite update</h2>
-						<p>Plusieurs watchers modifie un même objet du scope a chaque updates.</p>
-						<p>Plusieurs objets se réferençant se modifie mutuellement à chaque updates.</p>
+						<h2>Infinite update</h2>
+						<p>Plusieurs watchers modifient un même objet du scope a chaque update.</p>
+						<p>Plusieurs objets se réferençant se modifient mutuellement à chaque update.</p>
 						
 						<pre class="fragment"><code class="html">
 &lt;input type="text" ng-model="timestamp" ng-change="version++"/&gt;
@@ -382,15 +382,55 @@ app.controller('ProductCtrl', ['$scope', function($scope) {
 				<!-- Part III avantages MP -->
 				<!-- faible bande passante -->
 				<section>
-					<h1>Les avantages</h1>
+					<section>
+						<h1>Les avantages</h1>
+					</section>
+					<section>
+						<h2>Légèretée</h2>
+						<p>Angularjs, sans optimisation à outrance, permet de consommer un minimum de bande passante</p>
+						<ul>
+							<li style="margin-bottom : 1em;">Système de template par défaut<br />
+								&rArr; la balise ng-view définit où sont intégrées les vues</li>
+							<li style="margin-bottom : 1em;">Chargement de vues partielles</li>
+							<li>Données brutes chargées en asynchrone<br />
+								&rArr; JSON est le mieux intégré, XML possible</li>
+						</ul>
+					</section>
+					<section>
+						<h2>2 ways binding</h2>
+						<table style="border:none;">
+							<tr><td>Element dans ma vue</td><td>&hArr;</td><td>Controller</td></tr>
+							<tr><td>ng-model pour un formulaire</td><td></td><td>Action backoffice</td></tr>
+							<tr><td>{elt.nom} d'une liste</td><td></td><td>Traitement d'une pop-up</td></tr>
+							<tr><td></td><td>&dArr;</td><td></td></tr>
+							<tr><td></td><td>Mise à jour des éléments</td><td></td></tr>
+						</table>
+					</section>
+					<section>
+						<h2>Productivité</h2>
+						<ol>
+							<li>Contrôleur / Appel de service</li>
+							<li>Contrôleur / Affectation du résultat</li>
+							<li>Vue / ng-repeat sur la liste</li>
+							<li>Vue / Ajout des éléments de navigation : filtre, tri...</li>
+						</ol>
+						<p>On ajoute une pop-up de modification ? La liste est mise à jour en même temps.</p>
+					</section>
+					<section>
+						<h2>Réactivité</h2>
+						<p>En combinant les quelques contrôles vus précédemments, on peut très rapidement obtenir des écrans vivants; sans avoir besoin de contrôler chaque intéraction comme on le ferait avec jQuery</p>
+						<pre><code class="html">&lt;li ng-repeat="compte in comptes" ng-click="clickOnCompte(compte)" ng-class="{active : compte == selection}" &gt;
+    {{ compte.libelle }}
+  &lt;/li&gt;
+&lt;div ng-show="selection != undefined"&gt;
+{{ selection.devise }} {{ selection.solde | number:2 }}
+&lt;/div&gt;</code></pre>
+						<pre><code class="javascript">function clickOnCompte(compte) {
+	$scope.selection = compte;
+}</code></pre>
+					</section>
 				</section>
-				<section>
-					<h2>Légèretée</h2>
-					<p></p>
-					<ul>
-						<li></li>
-					</ul>
-				</section>
+				
 				<!-- 2 ways bindings, watcher, observable !! ->
 				<!-- productivité + petit exemple -->
 				<!-- tout en 1 (contrairement a backbone) -->				
