@@ -14,8 +14,6 @@
 
 		<link rel="icon" type="image/x-icon" href="imgs/js.ico" />
 		
-		<link href='http://fonts.googleapis.com/css?family=Ranchers|McLaren' rel='stylesheet' type='text/css' />
-		
 		<link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="css/theme/default.css" id="theme">
 
@@ -116,6 +114,121 @@
 						<h1>AngularJS basics !</h1>
 					</section>
 				<!-- Part I  explication des principes de base  MP + JW -->
+				<section>
+					<h2>Principes</h2>
+					<ul>
+						<li>HTML + Javascript (+ CSS)</li>
+						<li>Basé sur MVC</li>
+						<li style="list-style : none;">
+							<ul>
+								<li>Model : $scope, la glue de votre application</li>
+								<li>Vue : partielle HTML</li>
+								<li>Controller : fonction JS</li>
+							</ul>
+						</li>
+						<li>Philosophie</li>
+						<blockquote>
+							"Write less code, go have beer sooner."
+						</blockquote>
+					</ul>
+				</section>
+				
+				<!-- Model 2 way binding -->
+				<section>
+					<h2>2 way binding</h2>
+					<p>Prenons une variable user.name</p>
+					<ul>
+						<li style="margin-top : 1em;">
+							Modification dans la vue (via input)
+						</li>
+						<li style="list-style : none;">
+							<ul>
+								<li>Modification dans le model</li>
+							</ul>
+							<br />
+							<pre class="html"><code>ng-model="query"</code></pre>
+						</li>
+						<li style="margin-top : 1em;">
+							Modification du model (depuis controller)
+						</li>
+						<li style="list-style : none;">
+							<ul>
+								<li>IU automatiquement à jour</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				
+				<!-- Methodes dedies -->
+				<section>
+					<h2>Méthodes indispensables</h2>
+					<ul style="margin-top : 1em;">
+						<li style="width : 115%">
+							ng-click &rArr; invoque une méthode de votre contrôleur lors du clique
+						</li>
+						<li style="width : 115%">
+							ng-class &rArr; applique la classe si expression
+							<pre class="html"><code> &lt;li ng-class="{ active : compte == compteCourant }"&gt;</code></pre>
+						</li>		
+						<li style="width : 115%">
+							ng-model &rArr; bind un élément de la vue sur le model
+						</li>
+						<li style="width : 115%">
+							ng-repeat &rArr; foreach d'angularjs
+							<pre class="html"><code>&lt;li ng-repeat="element in liste"&gt;</code></pre>
+						</li>
+						<li style="width : 115%">
+							ng-show &rArr; affiche l'élément si expression
+							<pre class="html"><code>&lt;li ng-show="compte != undefined"&gt;</code></pre>
+						</li>
+					</ul>
+				</section>
+				
+				<!-- Directives -->
+				<section>
+					<h2>Directives</h2>
+					<p>Extension du DOM</p>
+					<ul>
+						<li>
+							Créer vos tags HTML
+						</li>
+						<li>
+							Utiliser vos propres paramètres
+						</li>
+					</ul>
+					<pre class="html"><code>&lt;cotation value="CGI" /&gt;</code></pre>
+					<ul>
+						<li>
+							Affiche la cotation boursière
+						</li>
+						<li>
+							Automatiquement mis à jour
+						</li>
+					</ul>
+					<p style="padding-left : 1em;margin-top : 1em;">&rArr; Transclude : réutilisation du code déclaré dans vos balises</p>
+				</section>
+				
+				<!-- Filter -->
+				<section>
+					<h2>Filtre</h2>
+					<p>Fonction de conversion de valeur</p>
+					<ul style="margin-top : 1em;">
+						<li style="width : 115%">
+							Formater une valeur<br />
+							<pre class="html"><code>{{ user.birthday | date:"dd'/'MM'/'yyyy" }}</code></pre>
+						</li>
+						<li style="width : 115%">
+							Filtrer une liste<br />
+							<pre class="html"><code>{{ products | filter:query }}</code></pre>
+						</li>		
+						<li style="width : 115%">
+							Trier une liste<br />
+							<pre class="html"><code>{{ products | filter:query | orderBy:price }}</code></pre>
+						</li>
+					</ul>
+					<p style="margin-top : 1em;">Implémentez vos filtres</p>
+				</section>
+				
 				<!-- controller -->
 				<!-- model 2 way binding -->
 				<!-- extension du dom, directives (exemple minimaliste) -->
@@ -243,9 +356,19 @@ app.controller('ProductCtrl', ['$scope', function($scope) {
 				
 				<!-- Part III avantages MP -->
 				<!-- faible bande passante -->
+				<section>
+					<h1>Les avantages</h1>
+				</section>
+				<section>
+					<h2>Légèretée</h2>
+					<p></p>
+					<ul>
+						<li></li>
+					</ul>
+				</section>
 				<!-- 2 ways bindings, watcher, observable !! ->
 				<!-- productivité + petit exemple -->
-				
+				<!-- tout en 1 (contrairement a backbone) -->				
 				
 				
 				<!-- Part IV maintenabilité JW + MP -->
