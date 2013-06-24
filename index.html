@@ -105,6 +105,10 @@
 				</section>
 				
 	
+				<section>
+					<section>
+						<h1>AngularJS basics !</h1>
+					</section>
 				<!-- Part I  explication des principes de base  MP + JW -->
 				<!-- controller -->
 				<!-- model 2 way binding -->
@@ -113,11 +117,87 @@
 				<!-- injection de dépendance (exemple minimaliste) -->
 				
 				<!-- misc, bus event,... -->
+				</section>
 				
 				<section>
 				<!-- Part II inconvénients JW -->
 				<!-- organisation du code, gros projets, require.js -->
-				<!-- complexité du build propre des JS, uglify, dependance node.js/npm (grunt) -->
+					<section>
+						<h1>Les inconvénients et lacunes d'AngularJS</h1>
+					</section>
+					<section>
+						<h2>Aucune recommandation d'organisation pour de gros projets</h2>
+						<p>Quelle stratégie adopter ? </p>
+						<ul>
+							<li class="fragment">Tout dans un fichier !</li>
+							<li class="fragment">Un fichier par type (controlleurs, filtres, directives)</li>
+							<li class="fragment">Un dossier par type</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Aucune recommandation d'organisation pour de gros projets</h2>
+						<p>Comment organiser et charger un gros projet ?</p>
+						<ul>
+							<li class="fragment">require.js</li>
+							<li class="fragment">tasks grunt</li>
+							<li class="fragment">wro4j ?</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Aucune recommandation d'organisation pour de gros projets</h2>
+						<p>
+						</p>
+						<pre class="javascript"><code>require(['MyApp','Angular','jQuery','app/controllers'], function(App) {
+	App.initialize();
+}</code></pre>
+					</section>
+										<section>
+						<h2>Aucune recommandation d'organisation pour de gros projets</h2>
+						<p>
+						</p>
+						<pre class="javascript"><code>var deps = ['Console', 
+            'Angular',
+            'AngularExtra'];
+ 
+var __main__controllers = ['adminuser',
+                           'group',
+                        ... (25 elts)
+                           'stage',
+                           'stageedit'];
+ 
+//add dependencies
+for (var i = 0; i < __main__controllers.length; i++) {
+  deps.push('app/controllers/'+__main__controllers[i]);
+}
+ 
+ 
+define(deps, function (Console) {
+	Console.info("controllers loaded", __main__controllers);
+});</code></pre>
+					</section>
+					
+					
+
+					
+					<section>
+						<!-- complexité du build propre des JS, uglify, dependance node.js/npm (grunt) -->
+						<h2>Comment intégrer un projet AngularJS dans un build de production</h2>
+						<p class="">Le projet ne peut rester éclaté dans 30 fichiers JS (pour des raisons de performances), il doit être minifié et donc obfusqué pour gagner en taille.</p>
+						<p class="fragment">La plupart des outils de build JS dependent de node.js. NPM peut rapidement devenir un cauchemar sur un réseau fermé</p>
+					</section>
+					
+					<section>
+						<h2>Minification problem</h2>
+						<pre class=""><code class="javascript">
+app.controller('ProductCtrl', function($scope) {
+// do stuff
+});</code></pre>
+					
+					<pre class="fragment"><code class="javascript">
+app.controller('ProductCtrl', ['$scope', function($scope) {
+// do stuff
+}]);</code></pre>
+</section>
 				<!-- obfuscation -->
 				<!-- rebond de scope -->
 				<!-- Performance a long terme => une modification mineure entraine un check de toutes les proprietes par angularjs -->
