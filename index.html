@@ -65,6 +65,12 @@
 							<tr>
 								<td>JSON</td><td>JavaScript Object Notation</td>
 							</td>
+							<tr>
+								<td>NodeJS</td><td>Serveur web en javascript</td>
+							</td>
+							<tr>
+								<td>NPM</td><td>NodeJS Package Manager</td>
+							</td>
 						</table>
 					</section>
 					
@@ -74,7 +80,7 @@
 						<h1>AngularJS c'est quoi ?</h1>
 						<ul>
 							<li class="fragment">Un framework JS !</li>
-							<li class="fragment">Controller</li>
+							<li class="fragment">modèle MVC</li>
 							<li class="fragment">Model de données dans les 2 sens</li>
 							<li class="fragment">Permet d'étendre le DOM</li>
 							<li class="fragment">Injection de dépendance</li>
@@ -187,6 +193,7 @@ define(deps, function (Console) {
 					</section>
 					
 					<section>
+						<!-- obfuscation -->
 						<h2>Minification problem</h2>
 						<pre class=""><code class="javascript">
 app.controller('ProductCtrl', function($scope) {
@@ -198,9 +205,21 @@ app.controller('ProductCtrl', ['$scope', function($scope) {
 // do stuff
 }]);</code></pre>
 </section>
-				<!-- obfuscation -->
+				
 				<!-- rebond de scope -->
 				<!-- Performance a long terme => une modification mineure entraine un check de toutes les proprietes par angularjs -->
+					<section>
+						<h2>Inifite update</h2>
+						<p>Plusieurs watchers modifie un même objet du scope a chaque updates.</p>
+						<p>Plusieurs objets se réferençant se modifie mutuellement à chaque updates.</p>
+						
+						<pre class="fragment"><code class="html">&lt;!DOCTYPE html&gt;
+							&lt;input type="text" ng-model="timestamp" ng-change="version++"/&gt;
+							&lt;input type="text" ng-model="version" ng-change="timestamp = new Date()"/&gt;
+						</code></pre>
+						
+					</section>
+					
 				
 					<section>
 						<h2>Directives scope nightmare</h2>
@@ -213,6 +232,11 @@ app.controller('ProductCtrl', ['$scope', function($scope) {
 						<ul>
 							<li>héritage de méthode et non de propriétés</li>
 						</ul>
+					</section>
+					
+					<section>
+						<h2>Héritage de scope</h2>
+						<p></p>
 					</section>
 				</section>
 				
@@ -256,13 +280,29 @@ app.controller('ProductCtrl', ['$scope', function($scope) {
 &lt;/html&gt;				</code></pre>
 					</section>
 					
+					<section>
+						<!-- angular.dart -->
+						<h2>Angular.dart is coming</h2>
+						
+						<p>Portage d'AngularJS en dart !</p>
+						<ul>
+							<li>Portage en parallèle d'Angular avec le langage dart</li>
+							<li class="fragment">Typage des paramètres</li>
+							<li class="fragment">Et tout les avantages de dart... (système de build, obfuscation, ...)</li>
+						<ul>
+						
+					</section>
+					
 				</section>
-				<!-- angular.dart -->
+				
 				
 				
 				<section>
 					<p>Présentation réalisée en HTML avec <span class="inline-code">reveal.js</span>, versionnée avec <span class="inline-code">git</span>.<p>
 					<p>Les exemples utilisent <span class="inline-code">twitter bootstrap</span>.</p>
+				</section>
+				
+				<section>
 				</section>
 					
 		</div>	
