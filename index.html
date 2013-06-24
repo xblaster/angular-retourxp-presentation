@@ -94,7 +94,8 @@
 					<section>
 						<h2>Pourquoi avoir démarrer notre aventure avec AngularJS ?</h2>
 						<ul>
-							<li class="fragment">POC</li>
+							<li class="fragment">Recherche d'un framework JS evolué</li>
+							<li class="fragment">Grosse communauté et tutorial prometteur</li>
 						</ul>
 					</section>
 					<section>
@@ -106,6 +107,21 @@
 							<li class="fragment">Un site de mariage</li>
 						</ul>
 					</section>
+					<section>
+						<h2>Deployment-manager ?</h2>
+						<ul>
+							<li class="fragment">Un ouil qui permet de voir le status d'un parc de machine en "live"</li>
+							<li class="fragment">Possibilité de deployer une appli web en un click</li>
+							<li class="fragment">Autocomplétion de recherche sur un nexus</li>
+							<li class="fragment">Inventaire des machines en live</li>
+							<li class="fragment"><span>Visualisation des logs, </span>
+												<span class="fragment">edit in place, </span>
+												<span class="fragment">notifications desktop, </span>
+												<span class="fragment">... </span>
+												</li>
+						</ul>
+					</section>
+					
 				</section>
 				
 	
@@ -246,6 +262,7 @@
 					</section>
 					<section>
 						<h2>Aucune recommandation d'organisation pour de gros projets</h2>
+						<img height="120" src="http://theartorder.com/wp-content/uploads/2013/01/strategy.jpg"/>
 						<p>Quelle stratégie adopter ? </p>
 						<ul>
 							<li class="fragment">Tout dans un fichier !</li>
@@ -264,7 +281,7 @@
 					</section>
 					<section>
 						<h2>Aucune recommandation d'organisation pour de gros projets</h2>
-						<p>
+						<p> Un exemple d'utilisation avec require.js
 						</p>
 						<pre class="javascript"><code>require(['MyApp','Angular','jQuery','app/controllers'], function(App) {
 	App.initialize();
@@ -272,7 +289,7 @@
 					</section>
 										<section>
 						<h2>Aucune recommandation d'organisation pour de gros projets</h2>
-						<p>
+						<p> Un exemple d'utilisation avec require.js
 						</p>
 						<pre class="javascript"><code>var deps = ['Console', 
             'Angular',
@@ -294,7 +311,11 @@ define(deps, function (Console) {
 	Console.info("controllers loaded", __main__controllers);
 });</code></pre>
 					</section>
-					
+					<section>
+						<h2>Aucune recommandation d'organisation pour de gros projets</h2>
+						<p>L'utilisation de require.js demande de creuser la documentation d'AngularJS</p>
+						<p>Les metadonnées du HTML ne peuvent être utilisé (chargement asynchrone), il faut donc utiliser angular.bootstrap <span class="fragment">(qui n'a rien avoir avec bootstrap twitter)</span></p>
+					</section>
 					
 
 					
@@ -310,9 +331,13 @@ define(deps, function (Console) {
 						<h2>Minification problem</h2>
 						<pre class=""><code class="javascript">
 app.controller('ProductCtrl', function($scope) {
-// do stuff
+// do stuff 
+$scope.var = ["hello"];
 });</code></pre>
-					
+						<p class="fragment">Résultat ...</p>
+										
+					<pre class="fragment"><code class="javascript">app.controller("ProductCtrl",function(a){a.var=["hello"]});</code></pre>
+					<p class="fragment">Solution...</p>
 					<pre class="fragment"><code class="javascript">
 app.controller('ProductCtrl', ['$scope', function($scope) {
 // do stuff
@@ -326,9 +351,9 @@ app.controller('ProductCtrl', ['$scope', function($scope) {
 						<p>Plusieurs watchers modifie un même objet du scope a chaque updates.</p>
 						<p>Plusieurs objets se réferençant se modifie mutuellement à chaque updates.</p>
 						
-						<pre class="fragment"><code class="html">&lt;!DOCTYPE html&gt;
-							&lt;input type="text" ng-model="timestamp" ng-change="version++"/&gt;
-							&lt;input type="text" ng-model="version" ng-change="timestamp = new Date()"/&gt;
+						<pre class="fragment"><code class="html">
+&lt;input type="text" ng-model="timestamp" ng-change="version++"/&gt;
+&lt;input type="text" ng-model="version" ng-change="timestamp = new Date()"/&gt;
 						</code></pre>
 						
 					</section>
