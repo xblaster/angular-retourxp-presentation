@@ -916,5 +916,18 @@ body {
 .reveal aside.notes {
 	display: none;
 }
+.reveal .noBorder tr td{
+	border : none;
+}
 
+.reveal .aligned{
+	margin-top : 2em;
+}
 
+.aligned tr td:nth-child(2){
+	text-align : center;
+}
+
+.aligned tr td:nth-child(3){
+	text-align : right;
+}

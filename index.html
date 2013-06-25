@@ -145,7 +145,7 @@
 						</li>
 						<li>Philosophie</li>
 						<blockquote>
-							"Write less code, go have beer sooner."
+							Write less code, go have beer sooner.
 						</blockquote>
 					</ul>
 				</section>
@@ -163,7 +163,7 @@
 								<li>Modification dans le model</li>
 							</ul>
 							<br />
-							<pre class="html"><code>ng-model="query"</code></pre>
+							<pre class="html"><code>&lt;input type="text" ng-model="query" /&gt;</code></pre>
 						</li>
 						<li style="margin-top : 1em;">
 							Modification du model (depuis controller)
@@ -184,7 +184,7 @@
 							ng-click &rArr; invoque une méthode de votre contrôleur lors du clique
 						</li>
 						<li style="width : 115%">
-							ng-class &rArr; applique la classe si expression
+							ng-class &rArr; applique la classe si ...
 							<pre class="html"><code> &lt;li ng-class="{ active : compte == compteCourant }"&gt;</code></pre>
 						</li>		
 						<li style="width : 115%">
@@ -195,7 +195,7 @@
 							<pre class="html"><code>&lt;li ng-repeat="element in liste"&gt;</code></pre>
 						</li>
 						<li style="width : 115%">
-							ng-show &rArr; affiche l'élément si expression
+							ng-show &rArr; affiche l'élément si ...
 							<pre class="html"><code>&lt;li ng-show="compte != undefined"&gt;</code></pre>
 						</li>
 					</ul>
@@ -210,12 +210,10 @@
 							Créer vos tags HTML
 						</li>
 						<li>
-							Utiliser vos propres paramètres
+							Utiliser vos propres paramètres<br />
+							<pre class="html"><code>&lt;cotation value="CGI" /&gt;</code></pre>
 						</li>
-					</ul>
-					<pre class="html"><code>&lt;cotation value="CGI" /&gt;</code></pre>
-					<ul>
-						<li>
+						<li style="margin-top : 1em;">
 							Affiche la cotation boursière
 						</li>
 						<li>
@@ -242,8 +240,47 @@
 							Trier une liste<br />
 							<pre class="html"><code>{{ products | filter:query | orderBy:price }}</code></pre>
 						</li>
+						<li>Fournis par angular : currency, number, date...</li>
 					</ul>
-					<p style="margin-top : 1em;">Implémentez vos filtres</p>
+					<p style="margin-top : 1em;">Implémentez vos filtres !</p>
+				</section>
+				
+				<!-- Injection de dependances -->
+				<section>
+					<h2>Injection de dépendances</h2>
+
+						<p>Notre glue</p>
+						<pre class="html" style="width : 200px"><code>$scope</code></pre>
+
+						<table class="noBorder" style="margin-top : 1em; margin-bottom : 1em;">
+						<tr><td style="width : 250px">Utile</td><td style="width : 250px">Indispensable</td><td style="width : 250px; text-align : right;">Navigation</td></tr>
+						<tr><td>
+						<pre class="html"><code>$rootScope</code></pre
+						</td><td>
+						<pre class="html"><code>$http</code></pre>
+						</td><td>
+						<pre class="html"><code>$location</code></pre>
+						</td></tr></table>
+<pre style="width : 600px" class="javascript"><code>function MyController($scope, $http){
+	 ... 
+}</code></pre>
+<p>Créer nos propres services et les injecter</p>
+				</section>
+				
+				<!-- Injection de dependances -->
+				<section>
+					<h2>Communiquer dans l'application</h2>
+					<ul style="width : 600px">
+						<li style="margin-bottom: 1em;">Emettre des évènements &dArr;
+							<pre class="html"><code>$scope.$broadcast('eventName', args)</code></pre>
+						</li>
+							<li style="margin-bottom: 1em;">Emettre des évènements &uArr;
+							<pre class="html"><code>$scope.$emit('eventName', args)</code></pre>
+						</li>
+						<li>Ecouter des évènements
+							<pre class="html"><code>$scope.$on('eventName', listener)</code></pre>
+						</li>
+					</ul>
 				</section>
 				
 				<!-- controller -->
@@ -267,7 +304,7 @@
 						<p>Quelle stratégie adopter ? </p>
 						<ul>
 							<li class="fragment">Tout dans un fichier !</li>
-							<li class="fragment">Un fichier par type (controlleurs, filtres, directives)</li>
+							<li class="fragment">Un fichier par type (controleurs, filtres, directives)</li>
 							<li class="fragment">Un dossier par type</li>
 						</ul>
 					</section>
@@ -315,7 +352,7 @@ define(deps, function (Console) {
 					<section>
 						<h2>Aucune recommandation d'organisation pour de gros projets</h2>
 						<p>L'utilisation de require.js demande de creuser la documentation d'AngularJS</p>
-						<p>Les metadonnées du HTML ne peuvent être utilisé (chargement asynchrone), il faut donc utiliser angular.bootstrap <span class="fragment">(qui n'a rien avoir avec bootstrap twitter)</span></p>
+						<p>Les metadonnées du HTML ne peuvent être utilisées (chargement asynchrone), il faut donc utiliser angular.bootstrap <span class="fragment">(qui n'a rien avoir avec bootstrap twitter)</span></p>
 					</section>
 					
 
@@ -405,8 +442,8 @@ $parent.$parent.$parent.maVar
 					</section>
 					<section>
 						<h2>Légèretée</h2>
-						<p>Angularjs, sans optimisation à outrance, permet de consommer un minimum de bande passante</p>
-						<ul>
+						<p style="margin-top : 1em;">Angularjs, sans optimisation à outrance, permet de consommer un minimum de bande passante</p>
+						<ul style="margin-top : 1.2em;">
 							<li style="margin-bottom : 1em;">Système de template par défaut<br />
 								&rArr; la balise ng-view définit où sont intégrées les vues</li>
 							<li style="margin-bottom : 1em;">Chargement de vues partielles</li>
@@ -414,37 +451,34 @@ $parent.$parent.$parent.maVar
 								&rArr; JSON est le mieux intégré, XML possible</li>
 						</ul>
 					</section>
+					<!--
 					<section>
 						<h2>2 ways binding</h2>
-						<table style="border:none;">
-							<tr><td>Element dans ma vue</td><td>&hArr;</td><td>Controller</td></tr>
-							<tr><td>ng-model pour un formulaire</td><td></td><td>Action backoffice</td></tr>
+						<table class="noBorder aligned">
+							<tr><td>Element dans ma vue</td><td style="text-align:center;">&hArr;</td><td>Controller</td></tr>
+							<tr><td>ng-model sur un input</td><td></td><td>Action backoffice</td></tr>
 							<tr><td>{elt.nom} d'une liste</td><td></td><td>Traitement d'une pop-up</td></tr>
 							<tr><td></td><td>&dArr;</td><td></td></tr>
 							<tr><td></td><td>Mise à jour des éléments</td><td></td></tr>
 						</table>
-					</section>
+					</section>-->
 					<section>
 						<h2>Productivité</h2>
-						<ol>
-							<li>Contrôleur / Appel de service</li>
-							<li>Contrôleur / Affectation du résultat</li>
-							<li>Vue / ng-repeat sur la liste</li>
-							<li>Vue / Ajout des éléments de navigation : filtre, tri...</li>
-						</ol>
-						<p>On ajoute une pop-up de modification ? La liste est mise à jour en même temps.</p>
-					</section>
-					
-					<!-- productivité + petit exemple -->
-					<section>
-						<h2>Productivité</h2>
-						<p>Un <a href="examples/1.html">petit exemple</a> d'édition d'une liste avec un formulaire</p>
-						<p class="fragment">Un <a href="examples/2.html">petit exemple</a> d'édition d'une liste aveec un formulaire ET validation</p>
+						<p>2 way binding !</p>
+						<table class="noBorder" style="margin-top : 1em;">
+						<tr><td rowspan="2" style="width : 200px;">Contrôleur</td><td>Appel de service</td></tr>
+						<tr><td>Affectation du résultat</td></tr>
+						<tr><td rowspan="2">Vue</td><td>ng-repeat sur la liste</td></tr>
+						<tr><td>Ajout des éléments de navigation : filtre, tri...</td></tr>
+						</table>
+						<p style="margin-top : 2em;">Modification d'un des item ? La liste est mise à jour en même temps...</p>
 					</section>
 					
 					<section>
 						<h2>Réactivité</h2>
-						<p>En combinant les quelques contrôles vus précédemments, on peut très rapidement obtenir des écrans vivants; sans avoir besoin de contrôler chaque intéraction comme on le ferait avec jQuery</p>
+						<p>En combinant quelques contrôles , on peut :</p>
+						<ul><li>Obtenir des écrans vivants très rapidement</li>
+						<li>Sans gérer chaque interaction (comme on le ferait avec jQuery)</li></ul>
 						<pre><code class="html">&lt;li ng-repeat="compte in comptes" ng-click="clickOnCompte(compte)" ng-class="{active : compte == selection}" &gt;
     {{ compte.libelle }}
   &lt;/li&gt;
@@ -455,12 +489,16 @@ $parent.$parent.$parent.maVar
 	$scope.selection = compte;
 }</code></pre>
 					</section>
+					
+					<!-- productivité + petit exemple -->
+					<section>
+						<h2>Productivité</h2>
+						<p>Un <a href="examples/1.html">petit exemple</a> d'édition d'une liste avec un formulaire</p>
+						<p class="fragment">Un <a href="examples/2.html">petit exemple</a> d'édition d'une liste avec un formulaire ET validation</p>
+					</section>
+					
 					<!-- 2 ways bindings, watcher, observable !! ->
 				
-					
-					
-					
-					
 					
 					<!-- tout en 1 (contrairement a backbone) -->
 					<!-- Consommation des ressources du client  (creation de la page chez lui sur son browser)-->	
@@ -468,8 +506,6 @@ $parent.$parent.$parent.maVar
 					
 					
 				</section>
-				
-				
 				
 				
 				<!-- Part IV maintenabilité JW + MP -->
