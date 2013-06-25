@@ -40,7 +40,7 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>retour d'experience sur<br/> <img src="imgs/AngularJS-large.png" style="border: 0px"></h1>
+					<h1>Retour d'experience sur<br/> <img src="imgs/AngularJS-large.png" style="border: 0px"></h1>
 					
 				</section>
 				
@@ -52,13 +52,13 @@
 								<td>JS</td><td>JavaScript</td>
 							</tr>
 							<tr>
-								<td>DOM</td><td>Document Object Model presents presents an HTML document as a tree-structure.</td>
+								<td>DOM</td><td>Document Object Model presents an HTML document as a tree-structure.</td>
 							</tr>
 							<tr>
 								<td>CSS</td><td>Cascading StyleSheet</td>
 							</td>
 							<tr>
-								<td>AJAX</td><td>Asynchrnous Javascript And [Xml]</td>
+								<td>AJAX</td><td>Asynchronous Javascript And [Xml]</td>
 							</td>
 							<tr>
 								<td>JSON</td><td>JavaScript Object Notation</td>
@@ -139,12 +139,12 @@
 						<li style="list-style : none;">
 							<ul>
 								<li>Model : $scope, la glue de votre application</li>
-								<li>Vue : partielle HTML</li>
+								<li>View : partielle HTML</li>
 								<li>Controller : fonction JS</li>
 							</ul>
 						</li>
-						<li>Philosophie</li>
-						<blockquote>
+						<li style="margin-top : 1em;">Philosophie</li>
+						<blockquote style="width:600px">
 							Write less code, go have beer sooner.
 						</blockquote>
 					</ul>
@@ -226,7 +226,7 @@
 				<!-- Filter -->
 				<section>
 					<h2>Filtres</h2>
-					<p>Fonction de conversion de valeur</p>
+					<p>Fonction de conversion de valeur (currency, number, date...) </p>
 					<ul style="margin-top : 1em;">
 						<li style="width : 115%">
 							Formater une valeur<br />
@@ -240,7 +240,6 @@
 							Trier une liste<br />
 							<pre class="html"><code>{{ products | filter:query | orderBy:price }}</code></pre>
 						</li>
-						<li>Fournis par angular : currency, number, date...</li>
 					</ul>
 					<p style="margin-top : 1em;">Implémentez vos filtres !</p>
 				</section>
@@ -267,7 +266,7 @@
 <p>Créer nos propres services et les injecter</p>
 				</section>
 				
-				<!-- Injection de dependances -->
+				<!-- Communication via les events -->
 				<section>
 					<h2>Communiquer dans l'application</h2>
 					<ul style="width : 600px">
@@ -282,6 +281,12 @@
 						</li>
 					</ul>
 				</section>
+					<!-- Illustration des basics -->
+					<section>
+						<h2>Illustration</h2>
+						<p>Un <a href="examples/0.html"> exemple</a> de liste, avec filtres et quelques balises.</p>
+						<p class="fragment">La <a href="examples/0-correction.html"> correction</a> si ca coince...</p>
+					</section>
 				
 				<!-- controller -->
 				<!-- model 2 way binding -->
