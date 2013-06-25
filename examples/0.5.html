@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="beersApp">
+<head>
+<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<script type="text/javascript">
+function ExampleCtrl($scope) {
+	$scope.bieres = [
+		{ "nom" : "1664", "contenance" : 330, "origine" : "France", "bu" : true },
+		{ "nom" : "Hoegaarden", "contenance" : 250, "origine" : "Belgique", "bu" : false },
+		{ "nom" : "Chouffe", "contenance" : 750, "origine" : "Belgique", "bu" : true },
+		{ "nom" : "Tsin Tao", "contenance" : 330, "origine" : "Chine", "bu" : true },
+		{ "nom" : "Budweiser Budvar", "contenance" : 330, "origine" : "Republique Tcheque", "bu" : false },
+		{ "nom" : "Fut Diekirch", "contenance" : 6000, "origine" : "Luxembourg", "bu" : true }
+	];
+}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+
+<script type="text/javascript">
+/*
+angular.module('contenanceFilter', []).filter('contenance', function() {
+  return function(input) {
+  	
+  };
+});
+*/
+angular.module('beersApp', []);
+</script>
+</head>
+
+<body>
+
+	<div class="container" ng-controller="ExampleCtrl">
+		<div class="row">
+			<div class="span12">
+				<h2><i class="icon-beer"></i> Bi&egrave;res du monde</h2>
+				
+				<table class="table">
+					<tr>
+						<th>
+						Nom
+						</th>
+						<th>
+						Contenance
+						</th>
+						<th>
+						Origine
+						</th>	
+						<th>
+						Glou ?
+						</th>					
+					</tr>
+					<tr ng-repeat="biere in bieres">
+						<td>{{biere.nom}}</td>
+						<td>{{biere.contenance}}</td>
+						<td>{{biere.origine}}</td>
+						<td><i class="icon-beer" ng-show="biere.bu"></i></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

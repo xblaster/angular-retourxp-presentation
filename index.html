@@ -158,7 +158,7 @@
 						<li style="margin-top : 1em;">
 							Modification dans la vue (via input)
 						</li>
-						<li style="list-style : none;">
+						<li style="list-style : none; width : 600px;">
 							<ul>
 								<li>Modification dans le model</li>
 							</ul>
@@ -181,7 +181,7 @@
 					<h2>Méthodes indispensables</h2>
 					<ul style="margin-top : 1em;">
 						<li style="width : 115%">
-							ng-click &rArr; invoque une méthode de votre contrôleur lors du clique
+							ng-click &rArr; action lors du clique (appel de méthode du contrôleur...)
 						</li>
 						<li style="width : 115%">
 							ng-class &rArr; applique la classe si ...
@@ -207,11 +207,11 @@
 					<p>Extension du DOM</p>
 					<ul>
 						<li>
-							Créer vos tags HTML
+							Créer vos balises HTML
 						</li>
 						<li>
 							Utiliser vos propres paramètres<br />
-							<pre class="html"><code>&lt;cotation value="CGI" /&gt;</code></pre>
+							<pre class="html"><code>&lt;cotation value="GIB" /&gt;</code></pre>
 						</li>
 						<li style="margin-top : 1em;">
 							Affiche la cotation boursière
@@ -220,7 +220,7 @@
 							Automatiquement mis à jour
 						</li>
 					</ul>
-					<p style="padding-left : 1em;margin-top : 1em;">&rArr; Transclude : réutilisation du code déclaré dans vos balises</p>
+					<p style="padding-left : 1em;margin-top : 1em;">[ Transclude : réutilisation du code déclaré dans vos balises ]</p>
 				</section>
 				
 				<!-- Filter -->
@@ -251,6 +251,9 @@
 						<p>Notre glue</p>
 						<pre class="html" style="width : 200px"><code>$scope</code></pre>
 
+<pre style="width : 600px" class="javascript"><code>function MyController($scope, $http){
+	 ... 
+}</code></pre>
 						<table class="noBorder" style="margin-top : 1em; margin-bottom : 1em;">
 						<tr><td style="width : 250px">Utile</td><td style="width : 250px">Indispensable</td><td style="width : 250px; text-align : right;">Navigation</td></tr>
 						<tr><td>
@@ -260,9 +263,6 @@
 						</td><td>
 						<pre class="html"><code>$location</code></pre>
 						</td></tr></table>
-<pre style="width : 600px" class="javascript"><code>function MyController($scope, $http){
-	 ... 
-}</code></pre>
 <p>Créer nos propres services et les injecter</p>
 				</section>
 				
@@ -446,7 +446,7 @@ $parent.$parent.$parent.maVar
 						<h1>Les avantages</h1>
 					</section>
 					<section>
-						<h2>Légèretée</h2>
+						<h2>Légèreté</h2>
 						<p style="margin-top : 1em;">Angularjs, sans optimisation à outrance, permet de consommer un minimum de bande passante</p>
 						<ul style="margin-top : 1.2em;">
 							<li style="margin-bottom : 1em;">Système de template par défaut<br />
@@ -479,6 +479,7 @@ $parent.$parent.$parent.maVar
 						<p style="margin-top : 2em;">Modification d'un des item ? La liste est mise à jour en même temps...</p>
 					</section>
 					
+					<!-- Reactivite -->
 					<section>
 						<h2>Réactivité</h2>
 						<p>En combinant quelques contrôles , on peut :</p>
@@ -487,7 +488,7 @@ $parent.$parent.$parent.maVar
 						<pre><code class="html">&lt;li ng-repeat="compte in comptes" ng-click="clickOnCompte(compte)" ng-class="{active : compte == selection}" &gt;
     {{ compte.libelle }}
   &lt;/li&gt;
-&lt;div ng-show="selection != undefined"&gt;
+&lt;div ng-show="selection"&gt;
 {{ selection.devise }} {{ selection.solde | number:2 }}
 &lt;/div&gt;</code></pre>
 						<pre><code class="javascript">function clickOnCompte(compte) {
