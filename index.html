@@ -96,6 +96,7 @@
 						<ul>
 							<li class="fragment">Recherche d'un framework JS evolué</li>
 							<li class="fragment">Grosse communauté et tutorial prometteur</li>
+							<li class="fragment">That's all...</li>
 						</ul>
 					</section>
 					<section>
@@ -104,7 +105,7 @@
 							<li class="fragment">POC pour la raiffeisen</li>
 							<li class="fragment">Deployment-manager</li>
 							<li class="fragment">Un tetris en réseau !</li>
-							<li class="fragment">Un site de mariage</li>
+							<li class="fragment">Un site de mariage !</li>
 						</ul>
 					</section>
 					<section>
@@ -367,14 +368,31 @@ app.controller('ProductCtrl', ['$scope', function($scope) {
   onCancel: '&',          // create a delegate onCancel function
   visible: '='            // set up visible to accept data-binding
 }						</code></pre>
-						<ul>
-							<li>héritage de méthode et non de propriétés</li>
-						</ul>
+						
 					</section>
 					
 					<section>
 						<h2>Héritage de scope</h2>
-						<p></p>
+	<p>L'héritage des propriétés et des méthodes ne se font pas de la même manière</p>
+	<pre class=""><code class="html">
+&lt;div ng-controller="FirstCtrl"&gt;
+	&lt;div ng-controller="SecondCtrl"&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+	<p>
+	<pre class="fragment"><code class="javascript">
+//dans le contexte du scope de SecondCtrl
+$parent.firstCtrlVar; //on doit utiliser le mot clé "$parent" pour accéder à la propriété du scope de FirstCtrl
+firstMethodCall();    //la méthode est heritée du scope de FirstCtrl
+
+</code></pre>
+
+<pre class="fragment"><code class="javascript">
+$parent.$parent.$parent.maVar
+</code></pre>
+
+
 					</section>
 				</section>
 				
@@ -492,7 +510,7 @@ app.controller('ProductCtrl', ['$scope', function($scope) {
 				</section>
 				
 				<section>
-					<h1></h1>
+					<h2>Une petite partie ?</h2>
 					<ul>
 						<li><a href="http://net.lo2k.net:3000">NodeTetrinet</a></li>
 					</ul>
