@@ -78,7 +78,7 @@
 						<h1>AngularJS c'est quoi ?</h1>
 						<ul>
 							<li class="fragment">Un framework JS !</li>
-							<li class="fragment">modèle MVC</li>
+							<li class="fragment">MVC</li>
 							<li class="fragment">Model de données dans les 2 sens</li>
 							<li class="fragment">Permet d'étendre le DOM</li>
 							<li class="fragment">Injection de dépendance</li>
@@ -96,7 +96,7 @@
 						<ul>
 							<li class="fragment">Recherche d'un framework JS evolué</li>
 							<li class="fragment">Grosse communauté et tutorial prometteur</li>
-							<li class="fragment">That's all...</li>
+							<li class="fragment">GOOGLE !</li>
 						</ul>
 					</section>
 					<section>
@@ -111,7 +111,7 @@
 					<section>
 						<h2>Deployment-manager ?</h2>
 						<ul>
-							<li class="fragment">Un ouil qui permet de voir le status d'un parc de machine en "live"</li>
+							<li class="fragment">Un outil qui permet de voir le status d'un parc de machine en "live"</li>
 							<li class="fragment">Possibilité de deployer une appli web en un click</li>
 							<li class="fragment">Autocomplétion de recherche sur un nexus</li>
 							<li class="fragment">Inventaire des machines en live</li>
@@ -435,6 +435,7 @@ $parent.$parent.$parent.maVar
 						<p>On ajoute une pop-up de modification ? La liste est mise à jour en même temps.</p>
 					</section>
 					
+					<!-- productivité + petit exemple -->
 					<section>
 						<h2>Productivité</h2>
 						<p>Un <a href="examples/1.html">petit exemple</a> d'édition d'une liste avec un formulaire</p>
@@ -455,7 +456,7 @@ $parent.$parent.$parent.maVar
 }</code></pre>
 					</section>
 					<!-- 2 ways bindings, watcher, observable !! ->
-					<!-- productivité + petit exemple -->
+				
 					
 					
 					
@@ -475,11 +476,7 @@ $parent.$parent.$parent.maVar
 				<section>
 					<section>
 						<h1>Maintenabilité</h1>
-					</section>
-				
-				
-				<!-- optimisation JS (grunt) -->
-								
+					</section>	
 				
 				<!-- batarang -->
 					<section>
@@ -506,6 +503,31 @@ $parent.$parent.$parent.maVar
 					</section>
 				
 				<!-- testing -->
+					<section>
+						<h2>Testing avec Karma</h2>
+						<img height="500" src="http://karma-runner.github.io/assets/img/screencast.png"/>
+					</section>
+					
+			
+					
+					<section>
+						<h2>Testing avec Karma</h2>
+						<p>Installation</p>
+						
+						<pre><code class="bash">npm install -g karma</code></pre>
+						
+						<p>Exemple de code</p>
+						
+						<pre><code class="javascript">it('should render phone specific links', function() {
+      input('query').enter('nexus');
+      element('.phones li a').click();
+      expect(browser().location().url()).toBe('/phones/nexus-s');
+});</code></pre>
+
+					</section>
+					
+					
+					
 				</section>
 				
 				
